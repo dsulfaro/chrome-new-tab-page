@@ -14,7 +14,7 @@ With this extension, users will see on the google homepage:
 ![](./wireframe.jpg)
 
 ### Technologies and Technilogical Challenges
-The extension will be implemented using HTML, CSS, and Javascript along with jQuery for the 3 API calls. I'll split each componenent into separate *.js files for clean organization, and then I'll have 1 main.js file that will receive all this data and display it on the page. There will be an html and css file to house and style the data.
+The extension will be implemented using HTML, CSS, and Javascript along with jQuery for the 3 API calls. I'll split each componenent into separate .js files for clean organization, and then I'll have 1 main.js file that will receive all this data and display it on the page. There will be an html and css file to house and style the data.
 
 The challenges I see:
 - Only manipulating Google.com and no other page
@@ -24,6 +24,7 @@ The challenges I see:
 I'll use the OpenWeatherMap API for the weather data, the Wordnik API for the word of the day, and the NPR API for the news headlines. All these will be called using jQuery's .ajax() method and injected into the existing HTML using jQuery's .append() method on Google's body.
 
 ### Implementation Timeline
+
 **Day 1** Get the infrastructure of the extension completed
 **Day 2** Inject HTML elements on Google's page only
 **Day 3** Get the desired data from the API calls
