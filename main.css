@@ -1,0 +1,63 @@
+html {
+  height: 90%;
+  width: 100%;
+}
+
+body {
+  opacity: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 30px;
+}
+
+.fade-in {
+  animation-name: fade;
+  animation-duration: 0.01s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade {
+  to { opacity: 1 }
+}
+
+@keyframes dropIn {
+  0% {
+    transform: translateY(-800px);
+    opacity: 0;
+   }
+  100% {
+    transform: translateY(0px);
+    opacity: 0.7;
+  }
+}
+
+#left {
+  width: 45%;
+}
+
+#notes {
+  width: 45%;
+  height: 95%;
+  padding: 20px;
+  font-size: 24px;
+  resize: none;
+
+  border-radius: 10px;
+  opacity: 0.7;
+  transition: opacity 0.5s;
+
+  animation-name: dropIn;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+
+#notes:focus {
+  outline: none;
+  opacity: 1;
+}
+
+#weather {
+  background-color: white;
+}

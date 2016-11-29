@@ -1,27 +1,24 @@
-## Google Landing Page
+## Chrome New Tab Page
 
 ### Background
-While minimalist design of Google.com is visually appealing, as someone who uses it as their homepage, I can't help but look at all that whitespace and wonder what else that space could be used for. Having information about the day all in one place will make planning the day easier because rather than having to look at separate resources for something like weather data, the user will have that information all in one place.
+There are certain utilities and bits of information I wish I had at the click of a button. Things like the current weather data or a scratch pad for notes would be super useful, yet they are an entire Google Search away. My chrome extension changes the default new tab page in Google Chrome with info that is important for anyone.
 
 ### Functionality & MVP
-With this extension, users will see on the google homepage:
+With this extension, users will see on the new tab page:
 - [] The local weather data
 - [] A word of the day
-- [] The top 5 news headlines
-
-
-### Wireframes
-![](./wireframe.jpg)
+- [] A quote of the day
+- [] The top news headlines
 
 ### Technologies and Technilogical Challenges
-The extension will be implemented using HTML, CSS, and Javascript along with jQuery for the 3 API calls. I'll split each componenent into separate .js files for clean organization, and then I'll have 1 main.js file that will receive all this data and display it on the page. There will be an html and css file to house and style the data.
+The extension will be implemented using HTML, CSS, and JavaScript along with jQuery for the 4 API calls. Each box on the page will be a separate JavaScript class for better organization.
 
 The challenges I see:
 - Only manipulating Google.com and no other page
 - Displaying the data cleanly and attractively on the page
-- Having standin messages for content that is loading or not able to be fetched at that time
+- Having stand-in messages for content that is loading or not able to be fetched at that time
 
-I'll use the OpenWeatherMap API for the weather data, the Wordnik API for the word of the day, and the NPR API for the news headlines. All these will be called using jQuery's .ajax() method and injected into the existing HTML using jQuery's .append() method on Google's body.
+I'll use the OpenWeatherMap API for the weather data, the Wordnik API for the word of the day, and the NPR API for the news headlines. All these will be called using jQuery's .ajax()/.getJSON() method and injected into the existing HTML using jQuery's .append() method on Google's body.
 
 ### Implementation Timeline
 
