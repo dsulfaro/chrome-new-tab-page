@@ -27,8 +27,8 @@ The extension originally started out by appending all the above info to the Goog
 
 Future Ideas:
 
--Word of the day section
--Display a greeting to the user using their name
--Ability to move and resize elements
--Change the news source; I'm sure not everyone reads NPR
--Have error messages for when API calls fail or there isn't a reliable internet connection
+- Word of the day section
+- Display a greeting to the user using their name
+- Ability to move and resize elements
+- Change the news source; I'm sure not everyone reads NPR
+- Have error messages for when API calls fail or there isn't a reliable internet connection
