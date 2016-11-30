@@ -9,7 +9,7 @@
   animation-name: newsEnter;
   animation-timing-function: ease;
   animation-fill-mode: forwards;
-  animation-duration: 2.5s;
+  animation-duration: 3s;
 }
 
 @keyframes newsEnter {

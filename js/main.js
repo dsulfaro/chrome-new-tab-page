@@ -168,11 +168,6 @@ class News {
 
 $(document).ready(() => {
 
-  // SET BACKGROUND //
-  // let colors = ["#3b6dbf", "#c893d6", "#a6d8e0", "#e0a09a", "#dbc787", "#ef7962"];
-  // $('body').css('background-color', colors[ Math.floor(Math.random() * 6) ]);
-  $('body').css({'background-image': 'url(https://source.unsplash.com/category/nature)', 'background-size': 'cover'});
-  // $('body').addClass('fade-in');
 
   // Handle Note Taking
   $('#notes').keyup( e => {

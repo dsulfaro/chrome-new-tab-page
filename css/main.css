@@ -9,6 +9,8 @@ body {
   display: flex;
   justify-content: space-around;
   padding-top: 30px;
+  background-image: url('https://source.unsplash.com/category/nature');
+  background-size: cover
 }
 
 a {
