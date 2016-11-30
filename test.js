@@ -158,6 +158,7 @@ class News {
   }
 
   displayNews() {
+    $('#news').addClass('fade-in');
     for (let i = 0; i < 5; i++) {
       $('#headlines').append(`<a href='${this.articles[i].link[2].$text}' target='_blank'><div class='story'><h2>${this.articles[i].title.$text}</h2></div></a>`)
     }
@@ -182,7 +183,6 @@ $(document).ready(() => {
 
   // GET AND DISPLAY INFO //
   setTimeout( () => {
-    $('#news').addClass('fade-in');
     let weather = new Weather;
 
     // if there isn't a quote saved or it's a new day, get a new quote
@@ -195,7 +195,7 @@ $(document).ready(() => {
       Quote.displayCacheQuote();
     }
 
-    
+
     let news = new News;
   }, 700);
 
