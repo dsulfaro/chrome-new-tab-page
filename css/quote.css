@@ -3,12 +3,25 @@
   opacity: 0.8;
   padding: 20px;
   margin-top: 20px;
-  opacity: 0.8;
+  opacity: 0.7;
   color: #333;
+  transition: 0.3s;
+
+  animation-name: dropIn;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-delay: 0.2s;
 }
 
 #quote-text {
   font-size: 26px;
   text-align: center;
   color: #333;
+}
+
+#quote:hover {
+  opacity: 1;
+  box-shadow: 7px 7px 10px #888;
+  transform: translate(-5px, -5px);
 }

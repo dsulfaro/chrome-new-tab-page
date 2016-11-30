@@ -1,27 +1,32 @@
 #notes {
-  width: 45%;
-  height: 95%;
+  width: 40%;
+  height: 90%;
   padding: 20px;
   font-size: 24px;
   resize: none;
+  align-self: center;
 
   border-radius: 5px;
   opacity: 0.7;
-  transition: all 0.5s;
+  transition: all 0.3s;
 
   animation-name: dropIn;
   animation-duration: 2s;
   animation-iteration-count: 1;
   animation-timing-function: ease;
+
 }
 
 #notes:hover {
   opacity: 0.8;
+  transform: translate(-10px, -10px);
+  box-shadow: 10px 10px 10px grey;
 }
 
 
 #notes:focus {
   outline: none;
   opacity: 1;
+  transform: translate(-10px, -10px);
   box-shadow: 10px 10px 10px grey;
 }

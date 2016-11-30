@@ -38,6 +38,7 @@ a {
 }
 
 #left {
+  align-self: center;
   width: 45%;
 }
 

@@ -1,0 +1,61 @@
+#news {
+  background-color: white;
+  opacity: 0.8;
+  padding: 20px;
+  margin-top: 20px;
+  opacity: 0.7;
+  color: #333;
+  transition: all 0.3s;
+
+  animation-name: dropIn;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+#npr {
+  text-align: center;
+  font-size: 20px;
+  align-items: center;
+}
+
+#news-header {
+  display: flex;
+  justify-content: center;
+}
+
+#news-header > a {
+  align-self: center;
+}
+
+#npr-logo {
+  height: 30px;
+  width: 90px;
+  align-self: center;
+}
+
+.story {
+  height: 15%;
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid black;
+  font-size: 10px;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.story:hover {
+  background-color: #ddd;
+}
+
+#news:hover {
+  opacity: 1;
+}
+
+#news:hover .story {
+  opacity: 1;
+  box-shadow: 4px 4px 6px #888;
+  transform: translate(-5px, -5px);
+}

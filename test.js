@@ -23,8 +23,8 @@ class Weather {
   displayData() {
     let d = new Date();
     $('#weather').append(`<img id='icon' src=${this.icon} />`)
-    $('#weather').append(`<h1 id='temperature'> ${this.temperature}&deg;</h1>`)
-    $('#weather').append(`<h1 id='weather-description'>&nbsp;-&nbsp;${this.description}</h1>`)
+    $('#weather').append(`<h1 id='temperature'>${this.temperature}&deg;</h1>`)
+    $('#weather').append(`<h1 id='weather-description'>&nbsp;${this.description}</h1>`)
     $('#weather').append(`<div id='location'><h3>${this.location}</h3><h4>${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}</h4></div>`)
   }
 
@@ -70,11 +70,17 @@ class Quote {
       quote: "In order to succeed, we must first believe that we can.",
       author: "Nikos Kazantzakis"},
     {
-      quote: ""
-    }]
+      quote: "Good, better, best. Never let it rest. 'Til your good is better and your better is best.",
+      author: "St. Jerome"},
+    {
+      quote: "Life is 10% what happens to you and 90% how you react to it.",
+      author: "Charles R. Swindoll"
+    }
+    ]
 
     this.getQuote = this.getQuote.bind(this);
     this.displayQuote = this.displayQuote.bind(this);
+    this.saveQuote = this.saveQuote.bind(this);
 
     this.getQuote();
   }
@@ -83,10 +89,16 @@ class Quote {
     $.getJSON("http://quotes.rest/qod.json", data => {
       this.quote = data.contents.quotes[0].quote;
       this.author = data.contents.quotes[0].author;
-      console.log(this.quote);
-      this.displayQuote()
+      this.displayQuote();
+      this.saveQuote();
     })
-    .fail();
+    .fail((data) => {
+      let idx = Math.floor(Math.random() * 3);
+      this.quote = this.fillers[idx].quote;
+      this.author = this.fillers[idx].author;
+      this.displayQuote();
+      this.saveQuote();
+    });
   }
 
   displayQuote() {
@@ -94,17 +106,93 @@ class Quote {
     $('#quote').append(`<h1 id="quote-author"> - ${this.author}</h1>`)
   }
 
+  saveQuote() {
+    let d = new Date;
+    localStorage["quote-text"] = this.quote;
+    localStorage["quote-author"] = this.author;
+    localStorage["quote-date"] = d.getDate();
+  }
+
+  static displayCacheQuote() {
+    $('#quote').append(`<h1 id="quote-text">${localStorage["quote-text"]}</h1>`)
+    $('#quote').append(`<h1 id="quote-author"> - ${localStorage["quote-author"]}</h1>`)
+  }
+
+}
+
+class Word {
+
+  constructor() {
+    this.word = "";
+    this.definition = "";
+    this.example = "";
+  }
+
+  getWord() {
+    $.getJSON("http://api.wordnik.com/v4/words.json/wordOfTheDay?api_key='yourkeyhere'")
+  }
+
+  displayWord() {
+
+  }
+
+}
+
+class News {
+
+  constructor() {
+    this.articles = [];
+    this.getNews = this.getNews.bind(this);
+    this.displayNews = this.displayNews.bind(this);
+    this.getNews = this.getNews.bind(this);
+
+    this.getNews();
+  }
+
+  getNews() {
+    $.getJSON("http://api.npr.org/query?id=1003&apiKey=MDI0NjcxNjQ2MDE0NjU0NDA0NTE0NDk2Nw000&format=json", data => {
+      this.articles = data.list.story;
+      this.displayNews();
+    })
+    .fail();
+  }
+
+  displayNews() {
+    for (let i = 0; i < 5; i++) {
+      $('#headlines').append(`<a href='${this.articles[i].link[2].$text}' target='_blank'><div class='story'><h2>${this.articles[i].title.$text}</h2></div></a>`)
+    }
+  }
+
 }
 
 $(document).ready(() => {
 
   // SET BACKGROUND //
-  // $('body').css({'background-image': 'url(https://source.unsplash.com/category/nature)', 'background-size': 'cover'});
-  let colors = ["#3b6dbf", "#c893d6", "#a6d8e0", "#e0a09a", "#dbc787", "#ef7962"];
-  $('body').css('background-color', colors[ Math.floor(Math.random() * 6) ]);
+  // let colors = ["#3b6dbf", "#c893d6", "#a6d8e0", "#e0a09a", "#dbc787", "#ef7962"];
+  // $('body').css('background-color', colors[ Math.floor(Math.random() * 6) ]);
+  $('body').css({'background-image': 'url(https://source.unsplash.com/category/nature)', 'background-size': 'cover'});
   $('body').addClass('fade-in');
 
-  // GET AND DISPLAY WEATHER //
-  let weather = new Weather;
-  let quote = new Quote;
+  // Handle Note Taking
+  $('#notes').keyup( e => {
+    let text = $('#notes').val();
+    localStorage["notes"] = text;
+  });
+  $('#notes').val(localStorage["notes"]);
+
+  // GET AND DISPLAY INFO //
+  setTimeout( () => {
+    $('#news').addClass('fade-in');
+    let weather = new Weather;
+    if (localStorage["quote-text"] == "" || parseInt(localStorage["quote-date"]) !== (new Date).getDate()) {
+      console.log("getting new quote");
+      let quote = new Quote;
+    }
+    else {
+      console.log("displaying cache quote");
+      Quote.displayCacheQuote();
+    }
+    let news = new News;
+  }, 700);
+
 });

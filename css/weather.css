@@ -6,7 +6,13 @@
   align-items: center;
   opacity: 0.7;
   padding-left: 30px;
-  transition: all 0.5s;
+  transition: all 0.3s;
+  border-radius: 5px;
+
+  animation-name: dropIn;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
 }
 
 #icon {
@@ -21,15 +27,17 @@
 #weather:hover {
   opacity: 1;
   box-shadow: 7px 7px 10px #888;
+  transform: translate(-5px, -5px);
 }
 
 #location {
-  font-size: 20px;
+  font-size: 18px;
   width: 400px;
   text-align: center;
 }
 
 #weather-description {
   width: 60%;
-  font-size: 34px;
+  font-size: 30px;
+  text-align: center;
 }
