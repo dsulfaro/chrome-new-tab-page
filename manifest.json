@@ -1,14 +1,9 @@
 {
-  "name": "Landing Page",
+  "name": "New Tab Landing Page",
   "version": "1",
-  "description": "Modifies new tab page",
+  "description": "All your info in one place",
   "manifest_version": 2,
   "permissions": ["tabs", "geolocation", "http://*/"],
-  "browser_action": {
-    "name": "Landing Page",
-    "icons": ["icon.png"],
-    "default_icon": "icon.png"
-  },
   "chrome_url_overrides" : {
     "newtab" : "index.html"
   }

@@ -161,7 +161,7 @@ class News {
     for (let i = 0; i < 5; i++) {
       $('#headlines').append(`<a href='${this.articles[i].link[2].$text}' target='_blank'><div class='story'><h2>${this.articles[i].title.$text}</h2></div></a>`)
     }
-    $('#news').addClass('fade-in');
+    $("news").css("opacity", "0.7");
   }
 
 }
@@ -172,7 +172,7 @@ $(document).ready(() => {
   // let colors = ["#3b6dbf", "#c893d6", "#a6d8e0", "#e0a09a", "#dbc787", "#ef7962"];
   // $('body').css('background-color', colors[ Math.floor(Math.random() * 6) ]);
   $('body').css({'background-image': 'url(https://source.unsplash.com/category/nature)', 'background-size': 'cover'});
-  $('body').addClass('fade-in');
+  // $('body').addClass('fade-in');
 
   // Handle Note Taking
   $('#notes').keyup( e => {
@@ -197,6 +197,6 @@ $(document).ready(() => {
 
 
     let news = new News;
-  }, 700);
+  }, 300);
 
 });

@@ -1,18 +1,26 @@
 #news {
   background-color: white;
-  opacity: 0.8;
   padding: 20px;
   margin-top: 20px;
-  opacity: 0.7;
   color: #333;
   transition: all 0.3s;
+  height: 350px;
 
-  animation-name: dropIn;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
+  animation-name: newsEnter;
   animation-timing-function: ease;
-  animation-delay: 0.4s;
-  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 2.5s;
+}
+
+@keyframes newsEnter {
+  0% {
+    transform: translateY(-1200px);
+    opacity: 0;
+   }
+  100% {
+    transform: translateY(0px);
+    opacity: 0.7;
+  }
 }
 
 #npr {
