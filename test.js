@@ -184,6 +184,8 @@ $(document).ready(() => {
   setTimeout( () => {
     $('#news').addClass('fade-in');
     let weather = new Weather;
+
+    // if there isn't a quote saved or it's a new day, get a new quote
     if (localStorage["quote-text"] == "" || parseInt(localStorage["quote-date"]) !== (new Date).getDate()) {
       console.log("getting new quote");
       let quote = new Quote;
@@ -192,6 +194,8 @@ $(document).ready(() => {
       console.log("displaying cache quote");
       Quote.displayCacheQuote();
     }
+
+    
     let news = new News;
   }, 700);
 
