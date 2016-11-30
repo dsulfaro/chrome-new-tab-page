@@ -1,0 +1,14 @@
+#quote {
+  background-color: white;
+  opacity: 0.8;
+  padding: 20px;
+  margin-top: 20px;
+  opacity: 0.8;
+  color: #333;
+}
+
+#quote-text {
+  font-size: 26px;
+  text-align: center;
+  color: #333;
+}

@@ -1,0 +1,35 @@
+#weather {
+  font-family: 'Libre Baskerville', serif;
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  opacity: 0.7;
+  padding-left: 30px;
+  transition: all 0.5s;
+}
+
+#icon {
+  height: 100px;
+  width: 100px;
+}
+
+#weather > * {
+  font-size: 40px;
+}
+
+#weather:hover {
+  opacity: 1;
+  box-shadow: 7px 7px 10px #888;
+}
+
+#location {
+  font-size: 20px;
+  width: 400px;
+  text-align: center;
+}
+
+#weather-description {
+  width: 60%;
+  font-size: 34px;
+}

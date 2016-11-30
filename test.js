@@ -21,8 +21,11 @@ class Weather {
   }
 
   displayData() {
-    console.log(this.icon);
+    let d = new Date();
     $('#weather').append(`<img id='icon' src=${this.icon} />`)
+    $('#weather').append(`<h1 id='temperature'> ${this.temperature}&deg;</h1>`)
+    $('#weather').append(`<h1 id='weather-description'>&nbsp;-&nbsp;${this.description}</h1>`)
+    $('#weather').append(`<div id='location'><h3>${this.location}</h3><h4>${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}</h4></div>`)
   }
 
   parseData(data) {
@@ -39,7 +42,6 @@ class Weather {
     url += `lon=${this.lon}&`;
     url += "appid=523af8b42c7084b89eb2e44ba3b9df79";
     url += "&mode=json&units=imperial";
-    console.log(url);
     $.getJSON(url, data => {
       this.parseData(data)
     });
@@ -59,6 +61,41 @@ class Weather {
   }
 }
 
+class Quote {
+
+  constructor() {
+    this.quote = "";
+    this.author = "";
+    this.fillers = [{
+      quote: "In order to succeed, we must first believe that we can.",
+      author: "Nikos Kazantzakis"},
+    {
+      quote: ""
+    }]
+
+    this.getQuote = this.getQuote.bind(this);
+    this.displayQuote = this.displayQuote.bind(this);
+
+    this.getQuote();
+  }
+
+  getQuote() {
+    $.getJSON("http://quotes.rest/qod.json", data => {
+      this.quote = data.contents.quotes[0].quote;
+      this.author = data.contents.quotes[0].author;
+      console.log(this.quote);
+      this.displayQuote()
+    })
+    .fail();
+  }
+
+  displayQuote() {
+    $('#quote').append(`<h1 id="quote-text">${this.quote}</h1>`)
+    $('#quote').append(`<h1 id="quote-author"> - ${this.author}</h1>`)
+  }
+
+}
+
 $(document).ready(() => {
 
   // SET BACKGROUND //
@@ -69,6 +106,5 @@ $(document).ready(() => {
 
   // GET AND DISPLAY WEATHER //
   let weather = new Weather;
-
-
+  let quote = new Quote;
 });
