@@ -158,10 +158,10 @@ class News {
   }
 
   displayNews() {
-    $('#news').addClass('fade-in');
     for (let i = 0; i < 5; i++) {
       $('#headlines').append(`<a href='${this.articles[i].link[2].$text}' target='_blank'><div class='story'><h2>${this.articles[i].title.$text}</h2></div></a>`)
     }
+    $('#news').addClass('fade-in');
   }
 
 }
