@@ -11,7 +11,7 @@
   transition: all 0.3s;
 
   animation-name: dropIn;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   animation-iteration-count: 1;
   animation-timing-function: ease;
 

@@ -1,6 +1,5 @@
 #quote {
   background-color: white;
-  opacity: 0.8;
   padding: 20px;
   margin-top: 20px;
   opacity: 0.7;
@@ -8,7 +7,7 @@
   transition: 0.3s;
 
   animation-name: dropIn;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   animation-iteration-count: 1;
   animation-timing-function: ease;
   animation-delay: 0.2s;

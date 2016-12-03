@@ -161,7 +161,6 @@ class News {
     for (let i = 0; i < 5; i++) {
       $('#headlines').append(`<a href='${this.articles[i].link[2].$text}' target='_blank'><div class='story'><h2>${this.articles[i].title.$text}</h2></div></a>`)
     }
-    $("news").css("opacity", "0.7");
   }
 
 }
