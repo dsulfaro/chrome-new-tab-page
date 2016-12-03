@@ -167,7 +167,6 @@ class News {
 
 $(document).ready(() => {
 
-
   // Handle Note Taking
   $('#notes').keyup( e => {
     let text = $('#notes').val();
@@ -181,11 +180,9 @@ $(document).ready(() => {
 
     // if there isn't a quote saved or it's a new day, get a new quote
     if (localStorage["quote-text"] == "" || parseInt(localStorage["quote-date"]) !== (new Date).getDate()) {
-      console.log("getting new quote");
       let quote = new Quote;
     }
     else {
-      console.log("displaying cache quote");
       Quote.displayCacheQuote();
     }
 

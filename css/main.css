@@ -1,5 +1,5 @@
 html {
-  height: 90%;
+  height: 100%;
   width: 100%;
 }
 
@@ -8,9 +8,8 @@ body {
   height: 100%;
   display: flex;
   justify-content: space-around;
-  padding-top: 30px;
   background-image: url('https://source.unsplash.com/category/nature');
-  background-size: cover
+  background-size: cover;
 }
 
 a {
